@@ -1,17 +1,139 @@
 /* Root Styles */
 :root {
     --bg: white;
+
+    --card-bg: grey;
+    --card-heading: white;
+
+    --label-color: white;
+    --input-bg: white;
+    --input-color: black;
+
+    --radio-bg: white;
+    --radio-color: black;
+    --radio-sel-bg: black;
+    --radio-sel-color: white;
 }
 
 /* General */
 body {
     background-color: var(--bg);
     margin: 0;
+    padding: 16px;
+    box-sizing: border-box;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 24px;
+}
+
+h1 {
+    margin: 0;
+}
+
+/* Start Form */
+#start-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+#cards-div {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+#cards-div > p {
+    font-size: 48px;
+}
+
+/* Player Cards */
+.player-card {
+    background-color: var(--card-bg);
+    padding: 24px;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: clamp(150px, 30vw, 350px);
+}
+
+.player-card h2 {
+    margin: 0;
+    color: var(--card-heading);
+}
+
+.form-div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-div label, .form-div p {
+    margin: 0;
+    color: var(--label-color);
+}
+
+.form-div input[type="text"] {
+    background-color: var(--input-bg);
+    color: var(--input-color);
+    border: none;
+    border-radius: 8px;
+    padding: 0 8px;
+    height: 28px;
+}
+
+.mark-div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.btn-label {
+    cursor: pointer;
+}
+
+.btn-label input {
+    display: none;
+}
+
+.btn-label span {
+    padding: 8px;
+    border: 2px solid var(--radio-sel-bg);
+    font-weight: bold;
+    background-color: var(--radio-bg);
+    color: var(--radio-color);
+}
+
+.left-label span {
+    display: block;
+    border-radius: 8px 0 0 8px;
+    border-right: none;
+}
+
+.right-label span {
+    display: block;
+    border-radius: 0 8px 8px 0;
+    border-left: none;
+}
+
+.starter-label {
+    align-self: center;
+}
+
+.starter-label span {
+    border-radius: 8px;
+    padding: 6px 16px;
+}
+
+.btn-label input:checked + span {
+    background-color: var(--radio-sel-bg);
+    color: var(--radio-sel-color);
 }
 
 /* Game Board */
