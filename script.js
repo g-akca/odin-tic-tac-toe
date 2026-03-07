@@ -70,6 +70,22 @@ const GameController = (() => {
 })();
 
 const DisplayController = (() => {
+    const player1Marks = document.querySelectorAll('input[name="player1Mark"]');
+    const player2Marks = document.querySelectorAll('input[name="player2Mark"]');
+
+    function syncMarks(changedPlayer, mark) {
+        if (changedPlayer == "1") player2Marks.forEach(radio => radio.checked = radio.value != mark);
+        else player1Marks.forEach(radio => radio.checked = radio.value != mark);
+    }
+
+    player1Marks.forEach(radio => {
+        radio.addEventListener("change", (e) => syncMarks("1", e.target.value));
+    });
+
+    player2Marks.forEach(radio => {
+        radio.addEventListener("change", (e) => syncMarks("2", e.target.value));
+    });
+
     const form = document.getElementById("start-form");
 
     form.addEventListener("submit", (e) => {
