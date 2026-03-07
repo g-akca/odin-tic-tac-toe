@@ -98,13 +98,11 @@ const DisplayController = (() => {
         cells.forEach((cell, index) => cell.textContent = board[index]);
     }
 
-    cells.forEach(cell => {
+    cells.forEach((cell, index) => {
         cell.addEventListener("click", () => {
             if (GameController.isGameOver()) return;
 
-            const index = cell.dataset.index;
             GameController.playRound(index);
-            
             renderBoard();
         });
     });
