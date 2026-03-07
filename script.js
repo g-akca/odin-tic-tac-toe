@@ -21,10 +21,14 @@ const Player = (name, mark) => {
 }
 
 const GameController = (() => {
-    let player1, player2, currentPlayer;
+    let player1, player2, currentPlayer, winner;
     let gameOver = false;
+    let tie = false;
 
+    const getCurrentPlayer = () => currentPlayer;
     const isGameOver = () => gameOver;
+    const getWinner = () => winner;
+    const isTie = () => tie;
 
     const startGame = (player1Name, player1Mark, player2Name, player2Mark, starter) => {
         player1 = Player(player1Name, player1Mark);
@@ -33,6 +37,9 @@ const GameController = (() => {
         currentPlayer = starter == "1" ? player1 : player2;
         
         gameOver = false;
+        tie = false;
+        winner = null;
+
         Gameboard.resetBoard();
     }
 
@@ -43,14 +50,14 @@ const GameController = (() => {
         if (!filled) return;
 
         if (checkWin()) {
-            console.log(`${currentPlayer.name} won!`);
             gameOver = true;
+            winner = currentPlayer;
             return;
         }
 
         if (checkTie()) {
-            console.log("Tie!");
             gameOver = true;
+            tie = true;
             return;
         }
 
@@ -66,7 +73,7 @@ const GameController = (() => {
 
     const checkTie = () => Gameboard.getBoard().every(cell => cell != "");
 
-    return { startGame, playRound, isGameOver };
+    return { startGame, playRound, getCurrentPlayer, isGameOver, getWinner, isTie };
 })();
 
 const DisplayController = (() => {
@@ -87,6 +94,7 @@ const DisplayController = (() => {
     });
 
     const form = document.getElementById("start-form");
+    const statusText = document.getElementById("status-text");
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -104,6 +112,8 @@ const DisplayController = (() => {
         document.getElementById("start-div").hidden = true;
         document.getElementById("game-div").hidden = false;
 
+        statusText.textContent = `${GameController.getCurrentPlayer().name}'s turn`;
+
         renderBoard();
     });
 
@@ -120,6 +130,10 @@ const DisplayController = (() => {
 
             GameController.playRound(index);
             renderBoard();
+
+            if (GameController.getWinner()) statusText.textContent = `${GameController.getWinner().name} wins!`;
+            else if (GameController.isTie()) statusText.textContent = "It's a tie!";
+            else statusText.textContent = `${GameController.getCurrentPlayer().name}'s turn`;
         });
     });
 
