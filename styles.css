@@ -101,6 +101,7 @@ button, input {
 .form-div label, .form-div p {
     margin: 0;
     color: var(--label-color);
+    font-size: 20px;
 }
 
 .form-div input[type="text"] {
@@ -108,12 +109,12 @@ button, input {
     color: var(--input-color);
     border: none;
     border-radius: 8px;
-    padding: 0 8px;
-    height: 28px;
+    padding: 8px;
+    font-size: 16px;
 }
 
 .form-div input[type="text"]:focus {
-    outline: none;
+    outline: 2px solid var(--radio-sel-bg);
 }
 
 .mark-div {
@@ -134,6 +135,7 @@ button, input {
     padding: 8px;
     border: 2px solid var(--radio-sel-bg);
     font-weight: bold;
+    letter-spacing: 1px;
     background-color: var(--radio-bg);
     color: var(--radio-color);
     transition: background-color 0.2s ease, color 0.2s ease;
