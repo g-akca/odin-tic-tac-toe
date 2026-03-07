@@ -25,9 +25,7 @@
 body {
     background-color: var(--bg);
     margin: 0;
-    padding: 16px;
-    box-sizing: border-box;
-    min-height: 100vh;
+    padding: clamp(8px, 10vh, 100px) 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -177,22 +175,26 @@ button, input {
 }
 
 #game-board {
-    width: 400px;
-    height: 400px;
+    width: min(40vw, 50vh);
+    aspect-ratio: 1 / 1;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    border: 1px solid black;
-    gap: 1px;
-    background-color: black;
-    border-radius: 8px;
+    border: 2px solid black;
+    border-radius: 16px;
     overflow: hidden;
+    background-color: white;
 }
 
 .cell {
-    background-color: white;
-    text-align: center;
-    line-height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.cell span {
     font-size: 48px;
+    line-height: 48px;
     font-weight: bold;
 }

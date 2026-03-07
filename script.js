@@ -121,7 +121,7 @@ const DisplayController = (() => {
 
     const renderBoard = () => {
         const board = Gameboard.getBoard();
-        cells.forEach((cell, index) => cell.textContent = board[index]);
+        cells.forEach((cell, index) => cell.firstElementChild.textContent = board[index]);
     }
 
     cells.forEach((cell, index) => {
