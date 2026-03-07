@@ -16,6 +16,8 @@
 
     --btn-bg: black;
     --btn-color: white;
+    --btn-hover-bg: grey;
+    --btn-hover-color: white;
 
     --game-bg: grey;
     --status-color: white;
@@ -29,7 +31,7 @@ html {
 body {
     background-color: var(--bg);
     margin: 0;
-    padding: clamp(8px, 10vh, 100px) 16px;
+    padding: clamp(8px, 10vh, 100px) 16px clamp(8px, 6vh, 60px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -165,6 +167,12 @@ button, input {
     font-size: 24px;
     line-height: 24px;
     cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#start-btn:hover, #reset-btn:hover {
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-color);
 }
 
 /* Game Board */
@@ -231,7 +239,6 @@ button, input {
     border: 2px solid black;
     border-radius: 16px;
     overflow: hidden;
-    background-color: white;
 }
 
 .cell {
@@ -240,6 +247,12 @@ button, input {
     align-items: center;
     border: 1px solid black;
     cursor: pointer;
+    background-color: white;
+    transition: opacity 0.2s;
+}
+
+.cell:hover {
+    opacity: 0.8;
 }
 
 .cell span {
