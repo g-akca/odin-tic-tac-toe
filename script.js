@@ -112,6 +112,11 @@ const DisplayController = (() => {
         document.getElementById("start-div").hidden = true;
         document.getElementById("game-div").hidden = false;
 
+        document.querySelector("#player1-name span").textContent = player1Name;
+        document.querySelector("#player1-mark span").textContent = player1Mark;
+        document.querySelector("#player2-name span").textContent = player2Name;
+        document.querySelector("#player2-mark span").textContent = player2Mark;
+
         statusText.textContent = `${GameController.getCurrentPlayer().name}'s turn`;
 
         renderBoard();
