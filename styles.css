@@ -152,7 +152,7 @@ button, input {
     color: var(--radio-sel-color);
 }
 
-#start-btn {
+#start-btn, #reset-btn {
     background-color: var(--btn-bg);
     color: var(--btn-color);
     padding: 12px 24px;
@@ -165,6 +165,13 @@ button, input {
 
 /* Game Board */
 #game-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+#game-div > div {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     column-gap: 24px;
@@ -174,8 +181,9 @@ button, input {
 .game-player {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-bottom: 56px;
+    gap: 8px;
+    margin-bottom: 60px;
+    text-align: center;
 }
 
 .game-player h2, .game-player p {
@@ -191,16 +199,8 @@ button, input {
 }
 
 .game-player p {
-    font-size: 24px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.game-player p span {
-    font-size: 48px;
-    line-height: 48px;
+    font-size: 60px;
+    line-height: 60px;
     font-weight: bold;
 }
 
@@ -235,6 +235,7 @@ button, input {
     justify-content: center;
     align-items: center;
     border: 1px solid black;
+    cursor: pointer;
 }
 
 .cell span {

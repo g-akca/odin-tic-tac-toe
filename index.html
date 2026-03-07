@@ -10,7 +10,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <title>Tic Tac Toe</title>
     </head>
-
     <body>
         <h1>Tic Tac Toe</h1>
 
@@ -27,7 +26,6 @@
 
                         <div class="form-div">
                             <p>Marker</p>
-
                             <div class="mark-div">
                                 <label class="btn-label left-label">
                                     <input type="radio" name="player1Mark" value="X" checked>
@@ -60,7 +58,6 @@
 
                         <div class="form-div">
                             <p>Marker</p>
-
                             <div class="mark-div">
                                 <label class="btn-label left-label">
                                     <input type="radio" name="player2Mark" value="X">
@@ -87,33 +84,37 @@
         </div>
 
         <div id="game-div" hidden>
-            <div class="game-player">
-                <h2 id="player1-name">Player 1: <span></span></h2>
-                <p id="player1-mark">Marker: <span></span></p>
-            </div>
-
-            <div id="game-main">
-                <div id="game-status">
-                    <p id="status-text"></p>
+            <div>
+                <div class="game-player">
+                    <h2 id="player1-name">Player 1: <span></span></h2>
+                    <p id="player1-mark"></p>
                 </div>
 
-                <div id="game-board">
-                    <div class="cell"><span></span></div>
-                    <div class="cell"><span></span></div>
-                    <div class="cell"><span></span></div>
-                    <div class="cell"><span></span></div>
-                    <div class="cell"><span></span></div>
-                    <div class="cell"><span></span></div>
-                    <div class="cell"><span></span></div>
-                    <div class="cell"><span></span></div>
-                    <div class="cell"><span></span></div>
+                <div id="game-main">
+                    <div id="game-status">
+                        <p id="status-text"></p>
+                    </div>
+
+                    <div id="game-board">
+                        <div class="cell"><span></span></div>
+                        <div class="cell"><span></span></div>
+                        <div class="cell"><span></span></div>
+                        <div class="cell"><span></span></div>
+                        <div class="cell"><span></span></div>
+                        <div class="cell"><span></span></div>
+                        <div class="cell"><span></span></div>
+                        <div class="cell"><span></span></div>
+                        <div class="cell"><span></span></div>
+                    </div>
+                </div>
+
+                <div class="game-player">
+                    <h2 id="player2-name">Player 2: <span></span></h2>
+                    <p id="player2-mark"></p>
                 </div>
             </div>
 
-            <div class="game-player">
-                <h2 id="player2-name">Player 2: <span></span></h2>
-                <p id="player2-mark">Marker: <span></span></p>
-            </div>
+            <button type="button" id="reset-btn" hidden>Reset Game</button>
         </div>
     </body>
 </html>

@@ -113,9 +113,9 @@ const DisplayController = (() => {
         document.getElementById("game-div").hidden = false;
 
         document.querySelector("#player1-name span").textContent = player1Name;
-        document.querySelector("#player1-mark span").textContent = player1Mark;
+        document.querySelector("#player1-mark").textContent = player1Mark;
         document.querySelector("#player2-name span").textContent = player2Name;
-        document.querySelector("#player2-mark span").textContent = player2Mark;
+        document.querySelector("#player2-mark").textContent = player2Mark;
 
         statusText.textContent = `${GameController.getCurrentPlayer().name}'s turn`;
 
@@ -136,9 +136,21 @@ const DisplayController = (() => {
             GameController.playRound(index);
             renderBoard();
 
-            if (GameController.getWinner()) statusText.textContent = `${GameController.getWinner().name} wins!`;
-            else if (GameController.isTie()) statusText.textContent = "It's a tie!";
-            else statusText.textContent = `${GameController.getCurrentPlayer().name}'s turn`;
+            if (GameController.getWinner()) {
+                statusText.textContent = `${GameController.getWinner().name} wins!`;
+                statusText.style.color = "#80f38d";
+                document.getElementById("reset-btn").hidden = false;
+                cells.forEach(c => c.style.cursor = "not-allowed");
+            }
+            else if (GameController.isTie()) {
+                statusText.textContent = "It's a tie!";
+                statusText.style.color = "#fff1ae";
+                document.getElementById("reset-btn").hidden = false;
+                cells.forEach(c => c.style.cursor = "not-allowed");
+            }
+            else {
+                statusText.textContent = `${GameController.getCurrentPlayer().name}'s turn`;
+            }
         });
     });
 
