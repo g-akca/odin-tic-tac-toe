@@ -102,9 +102,9 @@ const DisplayController = (() => {
             const index = cell.dataset.index;
             GameController.playRound(index);
             
-            render();
+            renderBoard();
         });
     });
 
-    return { render };
+    return { renderBoard };
 })();
