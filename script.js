@@ -85,6 +85,9 @@ const DisplayController = (() => {
 
         GameController.startGame(player1Name, player1Mark, player2Name, player2Mark, starter);
 
+        document.getElementById("start-div").hidden = true;
+        document.getElementById("game-div").hidden = false;
+
         renderBoard();
     });
 
