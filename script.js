@@ -129,6 +129,8 @@ const DisplayController = (() => {
         cells.forEach((cell, index) => cell.firstElementChild.textContent = board[index]);
     }
 
+    const resetBtn = document.getElementById("reset-btn");
+
     cells.forEach((cell, index) => {
         cell.addEventListener("click", () => {
             if (GameController.isGameOver()) return;
@@ -139,19 +141,28 @@ const DisplayController = (() => {
             if (GameController.getWinner()) {
                 statusText.textContent = `${GameController.getWinner().name} wins!`;
                 statusText.style.color = "#80f38d";
-                document.getElementById("reset-btn").hidden = false;
+                resetBtn.hidden = false;
                 cells.forEach(c => c.style.cursor = "not-allowed");
             }
             else if (GameController.isTie()) {
                 statusText.textContent = "It's a tie!";
                 statusText.style.color = "#fff1ae";
-                document.getElementById("reset-btn").hidden = false;
+                resetBtn.hidden = false;
                 cells.forEach(c => c.style.cursor = "not-allowed");
             }
             else {
                 statusText.textContent = `${GameController.getCurrentPlayer().name}'s turn`;
             }
         });
+    });
+
+    resetBtn.addEventListener("click", () => {
+        document.getElementById("start-div").hidden = false;
+        document.getElementById("game-div").hidden = true;
+        
+        resetBtn.hidden = true;
+        cells.forEach(c => c.style.cursor = "pointer");
+        statusText.style.color = "white";
     });
 
     return { renderBoard };

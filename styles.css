@@ -21,6 +21,10 @@
     --status-color: white;
 }
 
+html {
+    scrollbar-gutter: stable;
+}
+
 /* General */
 body {
     background-color: var(--bg);
