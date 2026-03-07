@@ -62,7 +62,7 @@ const GameController = (() => {
         const winningCombos = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
 
         return winningCombos.some(combo => combo.every(i => board[i] == currentPlayer.mark));
-    };
+    }
 
     const checkTie = () => Gameboard.getBoard().every(cell => cell != "");
 
@@ -70,5 +70,41 @@ const GameController = (() => {
 })();
 
 const DisplayController = (() => {
+    const form = document.getElementById("start-form");
 
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        const player1Name = formData.get("player1Name");
+        const player1Mark = formData.get("player1Mark");
+        const player2Name = formData.get("player2Name");
+        const player2Mark = formData.get("player2Mark");
+        const starter = formData.get("starter");
+
+        GameController.startGame(player1Name, player1Mark, player2Name, player2Mark, starter);
+
+        renderBoard();
+    });
+
+    const cells = document.querySelectorAll(".cell");
+
+    const renderBoard = () => {
+        const board = Gameboard.getBoard();
+        cells.forEach((cell, index) => cell.textContent = board[index]);
+    }
+
+    cells.forEach(cell => {
+        cell.addEventListener("click", () => {
+            if (GameController.isGameOver()) return;
+
+            const index = cell.dataset.index;
+            GameController.playRound(index);
+            
+            render();
+        });
+    });
+
+    return { render };
 })();
