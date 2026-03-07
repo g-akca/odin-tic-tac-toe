@@ -1,8 +1,8 @@
 /* Root Styles */
 :root {
-    --bg: white;
+    --bg: #f1fdf4;
 
-    --card-bg: grey;
+    --card-bg: #16a34a;
     --card-heading: white;
 
     --label-color: white;
@@ -11,15 +11,17 @@
 
     --radio-bg: white;
     --radio-color: black;
-    --radio-sel-bg: black;
+    --radio-sel-bg: #15803d;
     --radio-sel-color: white;
+    --radio-hover-bg: #16a34a;
+    --radio-hover-color: white;
 
-    --btn-bg: black;
+    --btn-bg: #15803d;
     --btn-color: white;
-    --btn-hover-bg: grey;
+    --btn-hover-bg: #166534;
     --btn-hover-color: white;
 
-    --game-bg: grey;
+    --game-bg: #22c55e;
     --status-color: white;
 }
 
@@ -110,6 +112,10 @@ button, input {
     height: 28px;
 }
 
+.form-div input[type="text"]:focus {
+    outline: none;
+}
+
 .mark-div {
     width: 100%;
     display: grid;
@@ -130,6 +136,12 @@ button, input {
     font-weight: bold;
     background-color: var(--radio-bg);
     color: var(--radio-color);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-label input:not(:checked) + span:hover {
+    background-color: var(--radio-hover-bg);
+    color: var(--radio-hover-color);
 }
 
 .left-label span {
