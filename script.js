@@ -2,7 +2,7 @@ const Gameboard = (() => {
     const board = ["", "", "", "", "", "", "", "", ""];
     const getBoard = () => board;
 
-    const resetBoard = () => board = ["", "", "", "", "", "", "", "", ""];
+    const resetBoard = () => board.fill("");
 
     const fillBoard = (index, mark) => {
         if (index >= 0 && index <= 8 && board[index] == "") {
