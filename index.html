@@ -4,13 +4,68 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="script.js" defer></script>
+        <link rel="stylesheet" href="styles.css">
         <title>Tic Tac Toe</title>
     </head>
-    
+
     <body>
+        <h1>Tic Tac Toe</h1>
+
         <div id="start-div">
             <form id="start-form">
+                <div id="cards-div">
+                    <div id="player1-card" class="player-card">
+                        <h2>Player 1</h2>
 
+                        <div class="form-div">
+                            <label for="player1Name">Name</label>
+                            <input type="text" id="player1Name" name="player1Name" placeholder="Enter name...">
+                        </div>
+
+                        <div class="form-div">
+                            <p>Mark</p>
+
+                            <div class="mark-div">
+                                <label>
+                                    <input type="radio" name="player1Mark">
+                                    <span>X</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="player1Mark">
+                                    <span>O</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>VS</p>
+
+                    <div id="player2-card" class="player-card">
+                        <h2>Player 2</h2>
+
+                        <div class="form-div">
+                            <label for="player1Name">Name</label>
+                            <input type="text" id="player2Name" name="player2Name" placeholder="Enter name...">
+                        </div>
+
+                        <div class="form-div">
+                            <p>Mark</p>
+
+                            <div class="mark-div">
+                                <label>
+                                    <input type="radio" name="player2Mark">
+                                    <span>X</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="player2Mark">
+                                    <span>O</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" id="start-btn">Start Game</button>
             </form>
         </div>
 
